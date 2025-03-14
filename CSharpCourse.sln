@@ -13,6 +13,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Understanding_OOP", "Unders
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Rectangles", "Rectangles\Rectangles.csproj", "{90034017-3ABF-4F05-AECC-19A72F5E4618}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Object_Initializers", "Object_Initializers\Object_Initializers.csproj", "{9DF06DE3-B18F-4D05-B013-6849436239AB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Names_SingleResponsibilityPrinciple", "Names_SingleResponsibilityPrinciple\Names_SingleResponsibilityPrinciple.csproj", "{5672DE79-CAA5-4784-988F-743339DF05E5}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +43,14 @@ Global
 		{90034017-3ABF-4F05-AECC-19A72F5E4618}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{90034017-3ABF-4F05-AECC-19A72F5E4618}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{90034017-3ABF-4F05-AECC-19A72F5E4618}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9DF06DE3-B18F-4D05-B013-6849436239AB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9DF06DE3-B18F-4D05-B013-6849436239AB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9DF06DE3-B18F-4D05-B013-6849436239AB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9DF06DE3-B18F-4D05-B013-6849436239AB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5672DE79-CAA5-4784-988F-743339DF05E5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5672DE79-CAA5-4784-988F-743339DF05E5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5672DE79-CAA5-4784-988F-743339DF05E5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5672DE79-CAA5-4784-988F-743339DF05E5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

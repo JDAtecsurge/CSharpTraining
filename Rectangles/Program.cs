@@ -9,23 +9,54 @@
 //var calculator = new ShapesMeasurementCalculator();
 
 var rectangle1 = new Rectangle(2, 5);
+var rectangle2 = new Rectangle(2, 5);
+var rectangle3 = new Rectangle(2, 5);
 
-Console.WriteLine("Width is " + rectangle1.Width);
-rectangle1.Width = 15;
-Console.WriteLine("Height is " + rectangle1.GetHeight());
-Console.WriteLine("Circumference is :" + rectangle1.CalculateRectangleCircumference());
-Console.WriteLine("Area is :" + rectangle1.CalcuateRectangleArea());
+
+Console.WriteLine("Count of Rectangle objects is " + Rectangle.CountOfInstances);
+
+//Console.WriteLine(Rectangle.DescribeGenerally());
+//Console.WriteLine(Rectangle.Numberofsides);
+
+//Console.WriteLine("Width is " + rectangle1.Width);
+//rectangle1.Width = 15;
+//Console.WriteLine("Height is " + rectangle1.GetHeight());
+//Console.WriteLine("Circumference is :" + rectangle1.CalculateRectangleCircumference());
+//Console.WriteLine("Area is :" + rectangle1.CalcuateRectangleArea());
+
+
+//Console.WriteLine($"1 + 2 is {Calculator.Add(1, 2)}");
+//Console.WriteLine($"1 + 2 is {Calculator.Subtract(1, 2)}");
+//Console.WriteLine($"1 + 2 is {Calculator.Multiply(1, 2)}");
 
 
 Console.ReadKey();
 
+static class Calculator
+{
+    public static int Add(int a, int b) => a + b;
+    public static int Subtract(int a, int b) => a - b;
+    public static int Multiply(int a, int b) => a * b;
+
+    
+}
+
 class Rectangle
 {
+
+    public static int CountOfInstances { get; private set; }
+    private static DateTime _firstused;
+
+    static Rectangle()
+    {
+        _firstused = DateTime.Now;
+    }
 
     public Rectangle(int width, int height)
     {
         Width = GetLengthorDefault(width, nameof(Width));
         _height = GetLengthorDefault(height, nameof(_height));
+        ++CountOfInstances;
 
     }
 
@@ -64,6 +95,14 @@ class Rectangle
     public int CalculateRectangleCircumference() => 2 * Width + 2 * _height;
     public int CalcuateRectangleArea() => _height * Width;
 
+
+    public string Description => $"A rectangle with width {Width}" + $"and hegiht {_height}";
+
+
+    public static string DescribeGenerally() => $"A plane figure with four straight sides and four right angles.";
+
+
+    public const int Numberofsides = 4;
 }
 
 
