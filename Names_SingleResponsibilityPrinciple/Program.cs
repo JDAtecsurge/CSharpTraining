@@ -1,10 +1,15 @@
-﻿var names = new Names();
-var path = names.BuildFilePath();
+﻿using Names_SingleResponsibilityPrinciple.DataAccess;
+
+var names = new Names();
+var path = new NamesFilePathBuilder().BuildFilePath();
+
+var stringsTextualRepository = new StringsTextualRepository();
 
 if (File.Exists(path))
 {
     Console.WriteLine("Names file already exists. Loading names.");
-    names.ReadFromTextFile();
+    var stringsFromFile = stringsTextualRepository.Read(path);
+    names.AddNames(stringsFromFile);
 }
 else
 {
@@ -17,69 +22,9 @@ else
     names.AddName("123 definitely not a valid name");
 
     Console.WriteLine("Saving names to the file.");
-    names.WriteToTextFile();
+    stringsTextualRepository.Write(path, names.All);
+
 }
-Console.WriteLine(names.Format());
+Console.WriteLine(new NamesFormatter().Format(names.All));
 
 Console.ReadKey();
-
-
-class NamesValidator
-{
-    public bool IsValid(string name)
-    {
-        return
-            name.Length >= 2 &&
-            name.Length < 25 &&
-            char.IsUpper(name[0]) &&
-            name.All(char.IsLetter);
-    }
-}
-
-
-class StringsTextualRepository
-{
-
-    private static readonly string Separator = Environment.NewLine;
-    public List<string> Read(string filePath)
-    {
-        var fileContents = File.ReadAllText(filePath);
-        return fileContents.Split(Separator).ToList();
-     
-    }
-
-    public void Write(string filePath, List<string> strings) =>
-        File.WriteAllText(filePath, string.Join(Separator, strings));
-
-}
-
-
-
-
-public class Names
-{
-    private readonly List<string> _names = new List<string>();
-    private readonly NamesValidator _namesValidator = new NamesValidator();
-
-    public void AddName(string name)
-    {
-        if (_namesValidator.IsValid(name))
-        {
-            _names.Add(name);
-        }
-    }
-
-   
-
-    
-
-    public string BuildFilePath()
-    {
-        //we could imagine this is much more complicated
-        //for example that path is provided by the user and validated
-        return "names.txt";
-    }
-
-    public string Format() =>
-        string.Join(Environment.NewLine, _names);
-}
