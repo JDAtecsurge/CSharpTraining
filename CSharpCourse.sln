@@ -17,6 +17,12 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Object_Initializers", "Obje
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Names_SingleResponsibilityPrinciple", "Names_SingleResponsibilityPrinciple\Names_SingleResponsibilityPrinciple.csproj", "{5672DE79-CAA5-4784-988F-743339DF05E5}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DiceRollGame_Assignment", "DiceRollGame_Assignment\DiceRollGame_Assignment.csproj", "{567D3D7F-645A-4EB3-8036-188436CCF819}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Polymorphism", "Polymorphism\Polymorphism.csproj", "{5242DCD4-8949-45D8-9C08-99C8D626A341}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Virtual_Methods", "Virtual_Methods\Virtual_Methods.csproj", "{FA7BAD56-5869-48A7-B999-794B30802C11}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -51,6 +57,18 @@ Global
 		{5672DE79-CAA5-4784-988F-743339DF05E5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5672DE79-CAA5-4784-988F-743339DF05E5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5672DE79-CAA5-4784-988F-743339DF05E5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{567D3D7F-645A-4EB3-8036-188436CCF819}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{567D3D7F-645A-4EB3-8036-188436CCF819}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{567D3D7F-645A-4EB3-8036-188436CCF819}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{567D3D7F-645A-4EB3-8036-188436CCF819}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5242DCD4-8949-45D8-9C08-99C8D626A341}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5242DCD4-8949-45D8-9C08-99C8D626A341}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5242DCD4-8949-45D8-9C08-99C8D626A341}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5242DCD4-8949-45D8-9C08-99C8D626A341}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FA7BAD56-5869-48A7-B999-794B30802C11}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FA7BAD56-5869-48A7-B999-794B30802C11}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FA7BAD56-5869-48A7-B999-794B30802C11}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FA7BAD56-5869-48A7-B999-794B30802C11}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
