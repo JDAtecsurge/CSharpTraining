@@ -39,10 +39,15 @@
 //pizza.AddIngredient(new Mozarella());
 //pizza.AddIngredient(new TomatoSauce());
 
-//Console.WriteLine(pizza.Describe());
+//Console.WriteLine(pizza.ToString());
 
-var cheddar = new Cheddar();
 
+
+var ingredient = new Ingredient(1);
+
+var cheddar = new Cheddar(2,12);
+
+Console.WriteLine(cheddar);
 
 Console.ReadKey();
 
@@ -52,12 +57,24 @@ public class Pizza
 
     public void AddIngredient(Ingredient ingredient) => _ingredients.Add(ingredient);
 
-    public string Describe() => $"This is a pizza with {string.Join(",", _ingredients)}";
+    public override string ToString() => $"This is a pizza with {string.Join(",", _ingredients)}";
 
 }
 public class Ingredient
 {
+
+    public Ingredient(int priceIfExtratopping)
+    {
+        Console.WriteLine("Constructor from the Ingredient class");
+        PriceIfExtratopping = priceIfExtratopping;
+    }
+
+
+    public int PriceIfExtratopping { get; }
+
     public int Field;
+
+    public override string ToString() => Name;
 
     public virtual string Name { get; } = "Some ingredient";
 
@@ -68,14 +85,24 @@ public class Ingredient
 
 public class Cheese : Ingredient
 {
-
+    public Cheese(int priceIfExtratopping) : base(priceIfExtratopping)
+    {
+    }
 }
 
 
 
-public class Cheddar : Cheese
+public class Cheddar : Ingredient
 {
-    public override string Name => "Cheddar cheese";
+
+    public Cheddar(int priceIfExtraTopping, int agedForMonths) : base(priceIfExtraTopping)
+    {
+        AgedForMonths = agedForMonths;
+        Console.WriteLine("Constructor from the Cheddar class");
+    }
+
+
+    public override string Name => $"{base.Name}, more specifically, a Cheddar cheese aged for {AgedForMonths} months";
     public int AgedForMonths { get; }
 
     public void UseMethodFromBaseClass()
@@ -87,12 +114,20 @@ public class Cheddar : Cheese
 
 public class TomatoSauce : Ingredient
 {
+    public TomatoSauce(int priceIfExtratopping) : base(priceIfExtratopping)
+    {
+    }
+
     public override string Name => "Tomato sauce";
     public int TomatosIn100Grams { get; }
 }
 
 public class Mozarella : Cheese
 {
+    public Mozarella(int priceIfExtratopping) : base(priceIfExtratopping)
+    {
+    }
+
     public override string Name => "Mozarella";
     public bool IsLight { get; }
 }
