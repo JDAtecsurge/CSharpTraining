@@ -1,6 +1,4 @@
-﻿
-
-//var ingredient = new Ingredient();
+﻿//var ingredient = new Ingredient();
 //ingredient.Field = 10;
 
 //var cheddar = new Cheddar();
@@ -41,18 +39,90 @@
 
 //Console.WriteLine(pizza.ToString());
 
+//int integer = 10;
+//decimal b = integer;
+
+//decimal c = 23232.01m;
+//int d = (int)c;
+
+//int secondSeasonNum = 4;
+//Season summer = (Season)secondSeasonNum;
+//Console.WriteLine(summer);
+
+//public enum Season
+//{
+//    Spring,
+//    Summer,
+//    Autumn,
+//    Winter
+//}
+
+//Ingredient ingredient = new Cheddar(1,12);
+
+//Ingredient randomIngredient = GenerateRandomIngredient();
+//Console.WriteLine("Random ingredient is" + randomIngredient);
 
 
-var ingredient = new Ingredient(1);
+//Console.WriteLine("is object? " + (ingredient is object));
+//Console.WriteLine("is ingredient? " + (ingredient is Ingredient));
+//Console.WriteLine("is cheddar? " + (ingredient is Cheddar));
+//Console.WriteLine("is mozzarella? " + (ingredient is Mozarella));
+//Console.WriteLine("is tomato sauce? " + (ingredient is TomatoSauce));
 
-var cheddar = new Cheddar(2,12);
 
-Console.WriteLine(cheddar);
+//if(randomIngredient is Cheddar)
+//{
+//    Cheddar cheddar = (Cheddar)randomIngredient;
+//    Console.WriteLine("Cheddar obejct:" + cheddar);
+//}
+
+//Ingredient ingredient = GenerateRandomIngredient();
+//Console.WriteLine("Ingredient is " + ingredient);
+
+//Cheddar cheddar = ingredient as Cheddar;
+
+//if (cheddar is not null)
+//{
+//    Console.WriteLine(cheddar.Name);
+//}
+//else
+//{
+//    Console.WriteLine("Conversion failed");
+//}
+
+var cheddar = new Cheddar(2, 12);
+var tomatosauce = new TomatoSauce(1);
+cheddar.Prepare();
+tomatosauce.Prepare();
+
+var ingredients = new List<Ingredient>
+{
+    new Cheddar(2,10),
+    new Mozarella(2),
+    new TomatoSauce(1)
+};
+
+foreach(Ingredient ingredient in ingredients)
+{
+    ingredient.Prepare();
+}
 
 Console.ReadKey();
 
+Ingredient GenerateRandomIngredient()
+{
+    var random = new Random();
+    var number = random.Next(1, 4);
+    if ( number == 1) { return new Cheddar(2, 12); }
+    if (number == 2) { return new TomatoSauce(1); }
+    else return new Mozarella(2);
+
+}
+
 public class Pizza
 {
+
+    public Ingredient Ingredient;
     private List<Ingredient> _ingredients = new List<Ingredient>();
 
     public void AddIngredient(Ingredient ingredient) => _ingredients.Add(ingredient);
@@ -60,7 +130,7 @@ public class Pizza
     public override string ToString() => $"This is a pizza with {string.Join(",", _ingredients)}";
 
 }
-public class Ingredient
+public abstract class Ingredient
 {
 
     public Ingredient(int priceIfExtratopping)
@@ -71,6 +141,8 @@ public class Ingredient
 
 
     public int PriceIfExtratopping { get; }
+
+    public abstract void Prepare();
 
     public int Field;
 
@@ -83,11 +155,13 @@ public class Ingredient
     protected string ProtectedMethod() => "This method is Protected in the Ingredient class.";
 }
 
-public class Cheese : Ingredient
+
+public abstract class Cheese : Ingredient
 {
     public Cheese(int priceIfExtratopping) : base(priceIfExtratopping)
     {
     }
+
 }
 
 
@@ -105,6 +179,9 @@ public class Cheddar : Ingredient
     public override string Name => $"{base.Name}, more specifically, a Cheddar cheese aged for {AgedForMonths} months";
     public int AgedForMonths { get; }
 
+    public override void Prepare() => Console.WriteLine("Grate and sprinkle over pizza");
+ 
+
     public void UseMethodFromBaseClass()
     {
         Console.WriteLine(PublicMethod());
@@ -120,6 +197,11 @@ public class TomatoSauce : Ingredient
 
     public override string Name => "Tomato sauce";
     public int TomatosIn100Grams { get; }
+
+    public override void Prepare()
+    {
+        Console.WriteLine("Cook tomatoes with basil, garlic and salt. " + "Spread on pizza");
+    }
 }
 
 public class Mozarella : Cheese
@@ -130,5 +212,8 @@ public class Mozarella : Cheese
 
     public override string Name => "Mozarella";
     public bool IsLight { get; }
-}
 
+    public override void Prepare() => Console.WriteLine("Slice thinly and place on top of the pizza");
+       
+    
+}
