@@ -1,12 +1,8 @@
-﻿namespace CookieCookBook_Assignment.Recipes.Ingredients
+﻿namespace CookieCookBook_Assignment.Recipes.Ingredients;
+
+public class Sugar : Ingredient
 {
-    public class Sugar : Ingredient
-    {
-        public override int Id => 5;
-        public override string Name => "Sugar";
-        
-    }
-
-
-
+    public override int Id => 5;
+    public override string Name => "Sugar";
+    
 }
