@@ -7,7 +7,7 @@ using System.Net.Http.Headers;
 using System.Text.Json;
 
 
-const FileFormat Format = FileFormat.Txt;
+const FileFormat Format = FileFormat.Json;
 
 IStringsRepository stringsRepository = Format == FileFormat.Json ?
     new StringsJsonRepository() :
@@ -27,4 +27,5 @@ var cookiesRecipesApp = new CookiesRecipesApp(
             ingredientsRegister));
 
 cookiesRecipesApp.Run(fileMetaData.ToPath());
+//cookiesRecipesApp.Run("recipes.json");
 
