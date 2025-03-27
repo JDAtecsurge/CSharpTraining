@@ -108,60 +108,86 @@
 //    Console.WriteLine("Check your Internet connection");
 //    throw;
 //}
+//}
 
+try
+{
+    Run();
 
+}
+catch (Exception ex)
+{
+    Console.WriteLine("An error occured. " + 
+        "Exception message: " + ex.Message);
+}
 
 Console.ReadKey();
 
 
-
-//[Serializable]
-//public class CustomException : Exception
-//{
-
-//    public int StatusCode { get; }
-
-//    protected CustomException(
-//        SerializationInfo info,
-//        StreamingContext context) : base(info, context)
-//    {
-
-//    }
-
-//    public CustomException()
-//    {
-
-//    }
-//    public CustomException(string message, int statusCode) : base(message)
-//    {
-//        StatusCode = statusCode;
-//    }
-//    public CustomException(
-//        string message, 
-//        int statusCode, 
-//        Exception innerException) : base(message, innerException)
-//    {
-//        StatusCode = statusCode;
-//    }
-
-//    public CustomException(string message) : base(message)
-//    {
-
-//    }
-//    public CustomException(string message, Exception innerException) 
-//        : base(message, innerException) 
-//    {
-
-//    }
-
-//}
+void Run()
+{
+    try
+    {
+        Console.WriteLine("Enter a word");
+        var word = Console.ReadLine();
+        Console.WriteLine("Count of characters is " + word.Length);
+    }
+    catch (NullReferenceException ex)
+    {
+        Console.WriteLine("Exception has beeen thrown with a message" +
+            ex.Message);
+        throw;
+    }   
+}
 
 
+    //[Serializable]
+    //public class CustomException : Exception
+    //{
 
-//int ParseStringToInt(string input)
-//{
-//    return int.Parse(input);
-//}
+    //    public int StatusCode { get; }
+
+    //    protected CustomException(
+    //        SerializationInfo info,
+    //        StreamingContext context) : base(info, context)
+    //    {
+
+    //    }
+
+    //    public CustomException()
+    //    {
+
+    //    }
+    //    public CustomException(string message, int statusCode) : base(message)
+    //    {
+    //        StatusCode = statusCode;
+    //    }
+    //    public CustomException(
+    //        string message, 
+    //        int statusCode, 
+    //        Exception innerException) : base(message, innerException)
+    //    {
+    //        StatusCode = statusCode;
+    //    }
+
+    //    public CustomException(string message) : base(message)
+    //    {
+
+    //    }
+    //    public CustomException(string message, Exception innerException) 
+    //        : base(message, innerException) 
+    //    {
+
+    //    }
+
+    //}
+
+
+
+    //int ParseStringToInt(string input)
+    //{
+    //    return int.Parse(input);
+    //}
 
 //void RecursiveMethod(int counter)
 //{
@@ -172,52 +198,52 @@ Console.ReadKey();
 //    }
 //}
 
-//int GetFirstElement(IEnumerable<int> numbers)
-//{
-//    foreach (var number in numbers)
-//    {
-//        return number;
-//    }
+    //int GetFirstElement(IEnumerable<int> numbers)
+    //{
+    //    foreach (var number in numbers)
+    //    {
+    //        return number;
+    //    }
 
-//    throw new InvalidOperationException("the collection cannot be empty.");
-//}
+    //    throw new InvalidOperationException("the collection cannot be empty.");
+    //}
 
-//bool IsFirstElementPresent(IEnumerable<int> numbers)
-//{
-//    try
-//    {
-//        var firstElement = GetFirstElement(numbers);
-//        return firstElement > 0;
-//    }
-//    catch (InvalidOperationException ex)
-//    {
-//        Console.WriteLine("the collection is empty ");
-//        return true;
-//    }
-//    catch(NullReferenceException ex)
-//    {
-//        Console.WriteLine("Apllication experienced an error");
-//        //throw;
-//        throw new ArgumentNullException("The collection cannot be null.", ex);
-//    }
+    //bool IsFirstElementPresent(IEnumerable<int> numbers)
+    //{
+    //    try
+    //    {
+    //        var firstElement = GetFirstElement(numbers);
+    //        return firstElement > 0;
+    //    }
+    //    catch (InvalidOperationException ex)
+    //    {
+    //        Console.WriteLine("the collection is empty ");
+    //        return true;
+    //    }
+    //    catch(NullReferenceException ex)
+    //    {
+    //        Console.WriteLine("Apllication experienced an error");
+    //        //throw;
+    //        throw new ArgumentNullException("The collection cannot be null.", ex);
+    //    }
 
-//}
+    //}
 
-//void ComplexMethod()
-//{
-//    //step 1: connecting
-//    throw new ConnectionException("Cannot connect to a service.");
+    //void ComplexMethod()
+    //{
+    //    //step 1: connecting
+    //    throw new ConnectionException("Cannot connect to a service.");
 
-//    //step 2: authorizing
-//    throw new AuthorizationException("Cannot authoruze the user");
+    //    //step 2: authorizing
+    //    throw new AuthorizationException("Cannot authoruze the user");
 
-//    //step 3: retrieving data as JSON
-//    throw new DataAccessException("Cannot retrieve data.");
+    //    //step 3: retrieving data as JSON
+    //    throw new DataAccessException("Cannot retrieve data.");
 
-//    //step 4: parsing the JSON to some C# type
-//    throw new JsonParingException("Cannot parse JSON data.");
+    //    //step 4: parsing the JSON to some C# type
+    //    throw new JsonParingException("Cannot parse JSON data.");
 
-//}
+    //}
 
 
 class Person
